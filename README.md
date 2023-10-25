@@ -1,89 +1,61 @@
-# Arpi Tool API 
+# Arpi Tool API
 
-## REST API con CRUD para  operaciones ecommerce. 
-## For installing the application to your local environment:
- Clonar repositorio a tu maquina.
- Abrí el directorio del proyecto e instala las dependencias -> "composer install".    
- Hace las conecciones en la base de datos en el archivo -> .env.
- Hacé las migraciones via -> "php artisan migrate".
- Instalá Laravel passport via -> "php artisan passport:install".
- Iniciá la aplicación -> "php artisan serve".
+## REST API with CRUD for E-commerce Operations
 
-# Documentación API
-## Endpoints:
+This is a REST API designed to facilitate e-commerce operations with CRUD (Create, Read, Update, Delete) functionality.
 
- Registro de usuario:                     "/api/register"  
- Login de usuario:                        "/api/login"    
- Logout de usuario:                       "/api/logout"   
+## Installation
 
- Listar productos:                        "/api/products"
- Lista los productos de una categoria:    "/api/products/{category_id}"      
- Recuperar un solo producto:              "/api/single-product/{id}"
- Listar todas las categorias:             "/api/categories"
- Recuperar una sola categoria por id:     "/categories/{id}"
+To run this application on your local environment, follow these steps:
 
- Añadir nuevo producto:                   "/api/add-product"
- Añadir productos multiples:              "/api/add-products"
- Actualizar un producto:                  "/api/update-product/{id}"
- Eliminar un producto:                    "/api/delete-product/{id}"
- Añadir una categoria:                    "/api/add-category"
- Actualizar una categoria:                "/api/update-category/{id}"      
- Eliminar una categoria:                  "/api/delete-category/{id}"
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Install the required dependencies: `composer install`.
+4. Configure your database connection in the `.env` file.
+5. Run migrations: `php artisan migrate`.
+6. Install Laravel Passport: `php artisan passport:install`.
+7. Start the application: `php artisan serve`.
 
-## Los formato de información a enviar deben ser en Json con los siguientes:
+## API Documentation
 
-## Data de registro:
+### Endpoints:
+
+- User Registration: `/api/register`
+- User Login: `/api/login`
+- User Logout: `/api/logout`
+
+#### Products:
+
+- List All Products: `/api/products`
+- List Products by Category: `/api/products/{category_id}`
+- Get a Single Product: `/api/single-product/{id}`
+
+#### Categories:
+
+- List All Categories: `/api/categories`
+- Get a Single Category by ID: `/categories/{id}`
+
+#### Create, Update, and Delete:
+
+- Add a New Product: `/api/add-product`
+- Add Multiple Products: `/api/add-products`
+- Update a Product: `/api/update-product/{id}`
+- Delete a Product: `/api/delete-product/{id}`
+- Add a Category: `/api/add-category`
+- Update a Category: `/api/update-category/{id}`
+- Delete a Category: `/api/delete-category/{id}`
+
+### JSON Data Format
+
+When making requests to these endpoints, ensure that your data is in JSON format.
+
+#### User Registration:
+
+```json
 {
     "name": "John Doe",
     "email": "john@doe.com",
     "password": "password",
     "c_password": "password",
     "role": "admin"
-}
-
-## Data de login:
-{
-    "email": "john@doe.com",
-    "password":"password"
-}
-
-## Añadir y actualizar data de categoria:
-{
-    "name":"technolgy"
-}
-
-## Añadir y actualzia data de productos:
-{
-    "name": "sample product1",
-    "category_id": "2",
-    "price":"123",
-    "description":"lorem ipsum dolor",
-    "image":"www.imagelink.com"
-}
-
-## Añadir multiples productos con una ruta:
-{   
-   "products": [   
-    {
-    "name": "sample product1",
-    "category_id": "1",
-    "price":"123",
-    "description":"lorem ipsum dolor",
-    "image":"www.imagelink.com"
-    },   
-    {
-    "name": "sample product2",
-    "category_id": "2",
-    "price":"123",
-    "description":"lorem ipsum dolor",
-    "image":"www.imagelink.com"
-    },   
-    {
-    "name": "sample product3",
-    "category_id": "1",
-    "price":"123",
-    "description":"lorem ipsum dolor",
-    "image":"www.imagelink.com"
-    }   
-   ]
 }
